@@ -32,9 +32,10 @@ body {
   color: white;
   background-color: rgba(255, 255, 255, 0);
   font-family: 'Courier New', Courier, monospace;
-  font-size: 3.7rem;
+  font-size: 2rem;
   margin: 0;
   padding:0%;
+  text-align: center;
   z-index: 10;
 }
 #text-div{
@@ -45,16 +46,21 @@ body {
   flex-direction: column;
 }
 #image{
+  margin-top: 50px;
   z-index: 12;
-  height: 7.8%;
-  width: 7.8%;
+  height: 5%;
+  width: 5%;
 }
 @media screen and (max-width: 600px){
   #text-div{
-    margin-top: 310px;
+    margin-top: 230px;
+  }
+  #text{
+    font-size: 1.2rem;
   }
   #image{
-    width: 35%;
-    height: 35%;
+  margin-top: 45px;
+    width: 25%;
+    height: 25%;
   }
 }
