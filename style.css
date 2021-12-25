@@ -59,6 +59,9 @@ body {
   font-size: 2rem;
   text-align: center;
   z-index: 10;
+  position: absolute;
+  left: 25%;
+  top: 50%;
 }
 
 #image {
