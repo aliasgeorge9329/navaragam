@@ -1,6 +1,6 @@
 "use strict";
 let pixelate = false;
-let background = false;
+let background = true;
 class Ember {
     constructor(colors, app, pixelate = false) {
         this.emberBlobs = [];
@@ -59,7 +59,8 @@ class Ember {
                 x: Math.random() * 300 - 150,
                 y: -250 + (Math.random() * -100)
             },
-            { x: Math.random() * 500 - 250,
+            {
+                x: Math.random() * 500 - 250,
                 y: -500 + (Math.random() * -150)
             }
         ];
@@ -125,10 +126,12 @@ class Fire {
         blob.position.x = (130 + (Math.random() * 50)) * (left ? -1 : 1);
         let targetX = (5 + (Math.random() * 60)) * (left ? -1 : 1);
         blob.scale.set(scale[0]);
-        TweenMax.to(blob, time, { ease: Power1.easeIn, pixi: { x: targetX, y: -270, scaleX: scale[1], scaleY: scale[1] }, onComplete: () => {
+        TweenMax.to(blob, time, {
+            ease: Power1.easeIn, pixi: { x: targetX, y: -270, scaleX: scale[1], scaleY: scale[1] }, onComplete: () => {
                 this.cutout.removeChild(blob);
                 blob = null;
-            } });
+            }
+        });
     }
     addFlame() {
         let time = this.time;
@@ -151,16 +154,19 @@ class Fire {
                 x: Math.random() * 100 - 50,
                 y: Math.random() * -50 + -50
             },
-            { x: 0,
+            {
+                x: 0,
                 y: -150 + Math.random() * -100
             }
         ];
         blob.scale.set(scale[0]);
         TweenMax.to(blob, time, { ease: Power1.easeIn, bezier: bezier, ease: Power0.easeOut });
-        TweenMax.to(blob, time, { pixi: { scaleX: scale[1], scaleY: scale[1] }, onComplete: () => {
+        TweenMax.to(blob, time, {
+            pixi: { scaleX: scale[1], scaleY: scale[1] }, onComplete: () => {
                 this.fire.removeChild(blob);
                 blob = null;
-            } });
+            }
+        });
     }
     get time() {
         return 1 + Math.random() * .4;
@@ -173,7 +179,7 @@ class Fire {
     ;
 }
 class Stage {
-    constructor(canvas, pixelate = false, background = false) {
+    constructor(canvas, pixelate = false, background = true) {
         this.flames = [];
         this.onResize = function () {
             this.app.renderer.resize(window.innerWidth, window.innerHeight);
@@ -187,13 +193,22 @@ class Stage {
             container.removeChild(element);
         };
         this.app = new PIXI.Application(window.innerWidth, window.innerHeight, { antialias: true, backgroundColor: background ? 0x0f0f0f : 0x11111D });
+
         // this.txt = new PIXI.Text('This is a PixiJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
         canvas.appendChild(this.app.view);
         // canvas.appendChild(this.txt)
         this.stage = new PIXI.Container();
         this.flamesContainer = new PIXI.Container();
         if (background) {
-            var background = PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
+            var bgArr = ['https://source.unsplash.com/600x600/?nature', 'https://source.unsplash.com/600x600/?bikes', 'https://source.unsplash.com/600x600/?cars']
+            var currBg = bgArr[0]
+            var background = PIXI.Sprite.fromImage(currBg);
+            window.addEventListener('click', () => {
+                currBg = bgArr[Math.floor(Math.random() * 3)]
+                background = new PIXI.Sprite(currBg);
+                console.log(background.texture.baseTexture.imageUrl);
+                console.log(background);
+            })
             var light = PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/light.png');
             this.add(background);
             this.add(light, this.flamesContainer);
