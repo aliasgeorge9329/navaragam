@@ -78,6 +78,7 @@ class Ember {
         return 2 + Math.random() * 1.5;
     }
 }
+
 class Fire {
     constructor(color, app, pixelate = false) {
         this.flame = new PIXI.Container();
@@ -109,6 +110,11 @@ class Fire {
             this.addFlame();
             this.addCutout(Math.random() > .5 ? true : false);
         }, 50);
+        window.addEventListener('click', () => {
+            new Fire()
+            this.addFlame();
+            this.addCutout(Math.random() > .5 ? true : false);
+        })
     }
     makeBlob(texture) {
         let blob = new PIXI.Sprite(texture);
@@ -133,6 +139,7 @@ class Fire {
             }
         });
     }
+
     addFlame() {
         let time = this.time;
         let blob = this.makeBlob(this.fireBlob);
@@ -168,10 +175,11 @@ class Fire {
             }
         });
     }
+
     get time() {
         return 1 + Math.random() * .4;
     }
-    set y(y) { this.flame.position.y = y; }
+    set y(y) { this.flame.position.y = y + 100; }
     ;
     set x(x) { this.flame.position.x = x; }
     ;
@@ -200,21 +208,25 @@ class Stage {
         this.stage = new PIXI.Container();
         this.flamesContainer = new PIXI.Container();
         if (background) {
-            var bgArr = ['https://source.unsplash.com/600x600/?nature', 'https://source.unsplash.com/600x600/?bikes', 'https://source.unsplash.com/600x600/?cars']
-            var currBg = bgArr[0]
-            var background = PIXI.Sprite.fromImage(currBg);
-            window.addEventListener('click', () => {
-                currBg = bgArr[Math.floor(Math.random() * 3)]
-                background = new PIXI.Sprite(currBg);
-                console.log(background.texture.baseTexture.imageUrl);
-                console.log(background);
-            })
-            var light = PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/light.png');
-            this.add(background);
+            var background0 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
+            var background1 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
+            var background2 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
+
+            var light = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/light.png');
+            this.add(background0);
             this.add(light, this.flamesContainer);
-            background.anchor.set(0.5);
-            background.scale.set(0.8);
-            background.position.y = -150;
+            background0.anchor.set(0.5);
+            background1.anchor.set(0.5);
+            background2.anchor.set(0.5);
+            background0.scale.set(0.8);
+            background1.scale.set(0.8);
+            background2.scale.set(0.8);
+            background0.position.y = -150;
+            background1.position.y = -150;
+            background2.position.y = -150;
+            background0.zOrder = -170;
+            background1.zOrder = -170;
+            background2.zOrder = -170;
             light.anchor.set(0.5);
             light.scale.set(1);
             light.position.y = 20;
@@ -248,10 +260,90 @@ class Stage {
         this.stokeAnimation.to(f, 0.3, { ease: Power2.easeOut, pixi: { scaleY: 1.2, scaleX: 1.15 } });
         this.stokeAnimation.to(f, 1.4, { ease: Bounce.easeOut, pixi: { scaleY: 1, scaleX: 1 } });
         this.stokeAnimation.stop();
+
+        let arrIndex = 0;
+
         window.addEventListener('resize', e => { this.onResize(); });
         window.addEventListener('click', e => {
+            if (arrIndex == 2) {
+                this.remove(background2)
+                this.add(background0)
+                // this.add(this.stage, this.app.stage);
+                this.add(this.flamesContainer);
+                this.flamesContainer.scale.set(0.75);
+                let flames = [
+                    { color: 0xE23B00, scale: 1, offset: -30 },
+                    { color: 0xFE8200, scale: 1, offset: -10 },
+                    { color: 0xFBE416, scale: 0.9, offset: 10 },
+                    // {color: 0xFDFDB4, scale: 0.7, offset: 30}
+                ];
+                let ember = new Ember([0xFE9C00, 0xFEA600, 0xE27100], this.app, pixelate);
+                this.add(ember.embers, this.flamesContainer);
+                flames.map((settings) => {
+                    let fire = new Fire(settings.color, this.app, pixelate);
+                    this.flames.push(fire);
+                    fire.y = settings.offset;
+                    fire.scale = settings.scale;
+                    fire.flame.pivot.set(0, 10);
+                    this.add(fire.flame, this.flamesContainer);
+                });
+
+
+                arrIndex = 0;
+            } else if (arrIndex == 1) {
+                this.remove(background1)
+                this.add(background2)
+                // this.add(this.stage, this.app.stage);
+                this.add(this.flamesContainer);
+                this.flamesContainer.scale.set(0.75);
+                let flames = [
+                    { color: 0xE23B00, scale: 1, offset: -30 },
+                    { color: 0xFE8200, scale: 1, offset: -10 },
+                    { color: 0xFBE416, scale: 0.9, offset: 10 },
+                    // {color: 0xFDFDB4, scale: 0.7, offset: 30}
+                ];
+                let ember = new Ember([0xFE9C00, 0xFEA600, 0xE27100], this.app, pixelate);
+                this.add(ember.embers, this.flamesContainer);
+                flames.map((settings) => {
+                    let fire = new Fire(settings.color, this.app, pixelate);
+                    this.flames.push(fire);
+                    fire.y = settings.offset;
+                    fire.scale = settings.scale;
+                    fire.flame.pivot.set(0, 10);
+                    this.add(fire.flame, this.flamesContainer);
+                });
+
+
+                arrIndex = arrIndex + 1;
+            } else {
+                this.remove(background0)
+                this.add(background1)
+                // this.add(this.stage, this.app.stage);
+                this.add(this.flamesContainer);
+                this.flamesContainer.scale.set(0.75);
+                let flames = [
+                    { color: 0xE23B00, scale: 1, offset: -30 },
+                    { color: 0xFE8200, scale: 1, offset: -10 },
+                    { color: 0xFBE416, scale: 0.9, offset: 10 },
+                    // {color: 0xFDFDB4, scale: 0.7, offset: 30}
+                ];
+                let ember = new Ember([0xFE9C00, 0xFEA600, 0xE27100], this.app, pixelate);
+                this.add(ember.embers, this.flamesContainer);
+                flames.map((settings) => {
+                    let fire = new Fire(settings.color, this.app, pixelate);
+                    this.flames.push(fire);
+                    fire.y = settings.offset;
+                    fire.scale = settings.scale;
+                    fire.flame.pivot.set(0, 10);
+                    this.add(fire.flame, this.flamesContainer);
+                });
+
+
+                arrIndex = arrIndex + 1;
+            }
             ember.stoke();
             this.stokeAnimation.restart();
+
         });
     }
 }
