@@ -12,6 +12,7 @@ body {
 }
 
 * {
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -36,8 +37,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-family: "Courier New", Courier,
-    monospace;
   font-size: 2rem;
   text-align: center;
   z-index: 10;
@@ -45,11 +44,11 @@ body {
 
 #image {
   position: absolute;
-  top: 70%;
+  top: 68%;
   left: 50%;
   transform: translate(-50%, 50%);
   z-index: 12;
-  width: 70px;
+  width: 60px;
 }
 @media screen and (max-width: 600px) {
   #text {

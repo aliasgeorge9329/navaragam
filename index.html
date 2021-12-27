@@ -16,7 +16,7 @@
   <div id='text-div'>
     <h2 id="text">This is dummy text for <br>navaragam new year resolution website</h2>
   </div>
-  <img src="rflame1.svg" alt="ragam_flame" id="image">
+  <img src="Group.svg" alt="ragam_flame" id="image">
   <div id="canvas">
   </div>
 
@@ -25,35 +25,38 @@
     <div class="modal-background">
       <div class="modal">
 
-        <button id="closeBtn" class="btn third" style="transform: scale(1.3);"><i class="fa fa-window-close" aria-hidden="true" ></i>        </button>
-        <h2 style="color: white;">Add Message</h2>
+        <div class="modal-heading">
+          <button id="closeBtn" class="btn third" style="transform: scale(1.3);"><i class="fa fa-close"
+              aria-hidden="true"></i> </button>
+          <h2 style="color: white; text-align: left;">Add Message</h2>
+        </div>
         <form id="form" style="margin-top: 50px;">
           <div class="form-group">
             <div class="Name">
               <input type="text" id="input-box" autocomplete="off" required />
               <label for="name" class="labelName">
-                  <span class="contentName">Message</span>
+                <span class="contentName">Message</span>
               </label>
-          </div>
-          <button type="submit" class="btn fourth" style="margin-top: 50px;">Submit</button>
+            </div>
+            <button type="submit" class="btn fourth" style="margin-top: 10px;">Submit</button>
           </div>
         </form>
-       </div> 
+      </div>
     </div>
   </div>
 
 
   <div class="floatingButtonWrap">
     <div class="floatingButtonInner">
-        <button  id="four" class="floatingButton" data-toggle="modal" data-target="#exampleModalCenter">
-            <i id="icon" class="fa fa-plus icon-default"></i>
-        </button>
+      <button id="four" class="floatingButton" data-toggle="modal" data-target="#exampleModalCenter">
+        <i id="icon" class="fa fa-plus icon-default"></i>
+      </button>
     </div>
-</div>
+  </div>
 
-<div class="bottom-right" data-notification-status="success">Successfully Submitted</div>
+  <div class="bottom-right" data-notification-status="success">Successfully Submitted</div>
 
- 
+
 
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
@@ -64,7 +67,7 @@
 
 
 
-  
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
   <script src="script2.js"></script>
 

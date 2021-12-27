@@ -10,9 +10,9 @@ function nextText() {
       var output2 = [];
       for (var j = 0; j < output.length;) {
             if (output[j + 1])
-                  output2.push(output[j] + " " + output[j + 1] + "<br>")
+                  output2.push(output[j] + " " + output[j + 1] + " ")
             else
-                  output2.push(output[j] + "<br>")
+                  output2.push(output[j] + " ")
 
             j += 2;
       }
@@ -57,10 +57,10 @@ async function submitToServer() {
                   body: JSON.stringify(data)
             })
             $('.bottom-right').addClass('notify')
-            .addClass(' do-show');
-          setInterval(() => {
-            $('.bottom-right').removeClass('do-show')
-          }, 3000)
+                  .addClass(' do-show');
+            setInterval(() => {
+                  $('.bottom-right').removeClass('do-show')
+            }, 3000)
       }
 
 }
@@ -113,7 +113,7 @@ getSentence()
 //           }
 //       );
 //       $(this).on('click', function(e) {
-        
+
 //           var container = $(".floatingButton");
 //           // if the target of the click isn't the container nor a descendant of the container
 //           if (!container.is(e.target) && $('.floatingButtonWrap').has(e.target).length === 0) 
@@ -129,7 +129,7 @@ getSentence()
 //               }
 //               $('.floatingMenu').hide();
 //           }
-        
+
 //           // if the target of the click isn't the container and a descendant of the menu
 //           if(!container.is(e.target) && ($('.floatingMenu').has(e.target).length > 0)) 
 //           {
@@ -140,9 +140,8 @@ getSentence()
 //   });
 
 
-  $('#four').click(function(){
-        if(!$('body').hasClass('modal-active'))
-        {
+$('#four').click(function () {
+      if (!$('body').hasClass('modal-active')) {
             var buttonId = $(this).attr('id');
             $('#modal-container').removeAttr('class').addClass(buttonId);
             $('body').addClass('modal-active');
@@ -150,25 +149,25 @@ getSentence()
             $('#icon').removeClass('fa-plus').addClass('fa-close')
             // .addClass('fa-close')
 
-        }
-        else{
+      }
+      else {
             var buttonId = $(this).attr('id');
             $('#modal-container').removeAttr('class')
             $('body').removeClass('modal-active');
             $('#icon').removeClass('fa-close').addClass('fa-plus')
-        }
-    })
-    
+      }
+})
 
 
-function closeModal(){
+
+function closeModal() {
       $('#modal-container').addClass('out');
       $('body').removeClass('modal-active');
       $('#icon').removeClass('fa-close').addClass('fa-plus')
 }
 
-$("#closeBtn").on('click',closeModal)
-     
+$("#closeBtn").on('click', closeModal)
+
 
 //  $(document).on("click",()=>{
 //       if($('body').hasClass('modal-active'))
