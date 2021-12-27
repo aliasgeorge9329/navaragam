@@ -7,6 +7,8 @@
   <title>CodePen - 🔥Fiery Hot Flames of Fiery Flaming Fire 🔥</title>
   <link rel="stylesheet" href="./style.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
@@ -19,11 +21,49 @@
   </div>
 
 
+  <div id="modal-container">
+    <div class="modal-background">
+      <div class="modal">
+        <form id="form">
+          <div class="form-group">
+            <div class="Name">
+              <input type="text" id="input-box" autocomplete="off" required />
+              <label for="name" class="labelName">
+                  <span class="contentName">Message</span>
+              </label>
+          </div>
+          <button type="submit">Submit</button>
+          </div>
+        </form>
+       </div> 
+    </div>
+  </div>
+
+
+  <div class="floatingButtonWrap">
+    <div class="floatingButtonInner">
+        <button  id="four" class="floatingButton" data-toggle="modal" data-target="#exampleModalCenter">
+            <i class="fa fa-plus icon-default"></i>
+        </button>
+    </div>
+</div>
+
+<div class="bottom-right" data-notification-status="success">Successfully Submitted</div>
+
+ 
+
+
   <script src='https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.4.3/pixi.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js'></script>
   <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/PixiPlugin.min.js?r=3'></script>
   <script src='https://cdn.jsdelivr.net/npm/pixi-filters@2.6.1/dist/pixi-filters.js'></script>
   <script src="./script.js"></script>
+
+
+
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src="script2.js"></script>
 
 </body>
 
