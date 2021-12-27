@@ -41,6 +41,7 @@
       left: 36%;
       transform: scale(0);
       z-index: 1;
+      
     }
     #modal-container.four {
       z-index: 10;
@@ -69,7 +70,7 @@
       vertical-align: middle;
     }
     #modal-container .modal-background .modal {
-      background: white;
+      background: black;
       padding: 50px;
       display: inline-block;
       border-radius: 3px;
@@ -151,7 +152,7 @@
     .Name {
       --activeTitleColor: grey;
       --bg: black;
-      --text: black;
+      --text: white;
     }
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
@@ -302,7 +303,7 @@
   background-color: transparent;
   border: 2px solid #e74c3c;
   border-radius: 0.6em;
-  color: #e74c3c;
+  color:white;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -323,8 +324,8 @@
   outline: 0;
 }
 .fourth {
-  border-color: #f1c40f;
-  background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+  border-color: green;
+  background-image: linear-gradient(45deg, green 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
   transition: background 300ms ease-in-out;
