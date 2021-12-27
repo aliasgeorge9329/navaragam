@@ -100,9 +100,10 @@
       stroke-dashoffset: 778;
     }
     @media (max-width:400px){
-      #modal-container{
+      #modal-container.four{
+        z-index: 100;
         transform: scale(0.6);
-        left: -3%;
+        left: -14%;
       }
     }
     
