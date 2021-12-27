@@ -131,7 +131,7 @@ $(document).ready(function(){
           }
         
           // if the target of the click isn't the container and a descendant of the menu
-          if(!container.is(e.target) && ($('.floatingMenu').has(e.target).length > 0 && !$('.modal').hasClass('show'))) 
+          if(!container.is(e.target) && ($('.floatingMenu').has(e.target).length > 0)) 
           {
               $('.floatingButton').removeClass('open');
               $('.floatingMenu').stop().slideToggle();
@@ -146,7 +146,14 @@ $(document).ready(function(){
       $('body').addClass('modal-active');
     })
     
-// $('#modal-container').click(function(){
-// $(this).addClass('out');
-// $('body').removeClass('modal-active');
-// });
+
+
+function closeModal(){
+      $('#modal-container').addClass('out');
+      $('body').removeClass('modal-active');
+}
+
+$("#closeBtn").on('click',closeModal)
+     
+
+
