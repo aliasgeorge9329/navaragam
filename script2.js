@@ -94,56 +94,69 @@ getSentence()
 
 
 
-$(document).ready(function(){
-      $('.floatingButton').on('click',
-          function(e){
-              e.preventDefault();
-              $(this).toggleClass('open');
-              if($(this).children('.fa').hasClass('fa-plus'))
-              {
-                  $(this).children('.fa').removeClass('fa-plus');
-                  $(this).children('.fa').addClass('fa-close');
-              } 
-              else if ($(this).children('.fa').hasClass('fa-close')) 
-              {
-                  $(this).children('.fa').removeClass('fa-close');
-                  $(this).children('.fa').addClass('fa-plus');
-              }
-              $('.floatingMenu').stop().slideToggle();
-          }
-      );
-      $(this).on('click', function(e) {
+// $(document).ready(function(){
+//       $('.floatingButton').on('click',
+//           function(e){
+//               e.preventDefault();
+//               $(this).toggleClass('open');
+//               if($(this).children('.fa').hasClass('fa-plus'))
+//               {
+//                   $(this).children('.fa').removeClass('fa-plus');
+//                   $(this).children('.fa').addClass('fa-close');
+//               } 
+//               else if ($(this).children('.fa').hasClass('fa-close')) 
+//               {
+//                   $(this).children('.fa').removeClass('fa-close');
+//                   $(this).children('.fa').addClass('fa-plus');
+//               }
+//               $('.floatingMenu').stop().slideToggle();
+//           }
+//       );
+//       $(this).on('click', function(e) {
         
-          var container = $(".floatingButton");
-          // if the target of the click isn't the container nor a descendant of the container
-          if (!container.is(e.target) && $('.floatingButtonWrap').has(e.target).length === 0) 
-          {
-              if(container.hasClass('open'))
-              {
-                  container.removeClass('open');
-              }
-              if (container.children('.fa').hasClass('fa-close')) 
-              {
-                  container.children('.fa').removeClass('fa-close');
-                  container.children('.fa').addClass('fa-plus');
-              }
-              $('.floatingMenu').hide();
-          }
+//           var container = $(".floatingButton");
+//           // if the target of the click isn't the container nor a descendant of the container
+//           if (!container.is(e.target) && $('.floatingButtonWrap').has(e.target).length === 0) 
+//           {
+//               if(container.hasClass('open'))
+//               {
+//                   container.removeClass('open');
+//               }
+//               if (container.children('.fa').hasClass('fa-close')) 
+//               {
+//                   container.children('.fa').removeClass('fa-close');
+//                   container.children('.fa').addClass('fa-plus');
+//               }
+//               $('.floatingMenu').hide();
+//           }
         
-          // if the target of the click isn't the container and a descendant of the menu
-          if(!container.is(e.target) && ($('.floatingMenu').has(e.target).length > 0)) 
-          {
-              $('.floatingButton').removeClass('open');
-              $('.floatingMenu').stop().slideToggle();
-          } 
-      });
-  });
+//           // if the target of the click isn't the container and a descendant of the menu
+//           if(!container.is(e.target) && ($('.floatingMenu').has(e.target).length > 0)) 
+//           {
+//               $('.floatingButton').removeClass('open');
+//               $('.floatingMenu').stop().slideToggle();
+//           } 
+//       });
+//   });
 
 
   $('#four').click(function(){
-      var buttonId = $(this).attr('id');
-      $('#modal-container').removeAttr('class').addClass(buttonId);
-      $('body').addClass('modal-active');
+        if(!$('body').hasClass('modal-active'))
+        {
+            var buttonId = $(this).attr('id');
+            $('#modal-container').removeAttr('class').addClass(buttonId);
+            $('body').addClass('modal-active');
+            $('.floatingButton').addClass('open');
+            $('#icon').removeClass('fa-plus').addClass('fa-close')
+            // .addClass('fa-close')
+
+        }
+        else{
+            var buttonId = $(this).attr('id');
+            $('#modal-container').removeAttr('class')
+            $('body').removeClass('modal-active');
+            $('#icon').removeClass('fa-close').addClass('fa-plus')
+        }
     })
     
 
@@ -151,9 +164,15 @@ $(document).ready(function(){
 function closeModal(){
       $('#modal-container').addClass('out');
       $('body').removeClass('modal-active');
+      $('#icon').removeClass('fa-close').addClass('fa-plus')
 }
 
 $("#closeBtn").on('click',closeModal)
      
 
-
+//  $(document).on("click",()=>{
+//       if($('body').hasClass('modal-active'))
+//             $('.floatingMenu').addClass('open')
+//       else
+//             $('.floatingMenu').removeClass('open')
+//  })
