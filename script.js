@@ -81,6 +81,7 @@ class Ember {
 
 class Fire {
     constructor(color, app, pixelate = false) {
+
         this.flame = new PIXI.Container();
         this.cutout = new PIXI.Container();
         this.fire = new PIXI.Container();
@@ -205,6 +206,7 @@ class Stage {
         // this.txt = new PIXI.Text('This is a PixiJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
         canvas.appendChild(this.app.view);
         // canvas.appendChild(this.txt)
+
         this.stage = new PIXI.Container();
         this.flamesContainer = new PIXI.Container();
         if (background) {
@@ -213,6 +215,14 @@ class Stage {
             var background2 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
 
             var light = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/light.png');
+
+            var logo=new PIXI.Sprite.fromImage('Group.svg')
+            logo.anchor.set(0.6)
+            logo.scale.set(0.2)
+            logo.position.y=70
+            logo.position.x=5
+
+
             this.add(background0);
             this.add(light, this.flamesContainer);
             background0.anchor.set(0.5);
@@ -233,6 +243,7 @@ class Stage {
             setInterval(() => {
                 light.alpha = 0.3 + Math.random() * 0.2;
             }, 50);
+            
         }
         this.add(this.stage, this.app.stage);
         this.add(this.flamesContainer);
@@ -343,8 +354,11 @@ class Stage {
             }
             ember.stoke();
             this.stokeAnimation.restart();
+            this.add(logo)
 
         });
+        this.add(logo)
+
     }
 }
 let stage = new Stage(document.getElementById('canvas'), pixelate, background);
