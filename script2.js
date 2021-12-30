@@ -152,7 +152,7 @@ $('#four').click(function () {
       }
       else {
             var buttonId = $(this).attr('id');
-            $('#modal-container').removeAttr('class')
+            $('#modal-container').removeAttr('class').addClass('scale')
             $('body').removeClass('modal-active');
             $('#icon').removeClass('fa-close').addClass('fa-plus')
       }

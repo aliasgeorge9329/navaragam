@@ -21,7 +21,7 @@ class Ember {
         }, 300);
     }
     stoke() {
-        let amount = 1000 + Math.round(Math.random() * 100);
+        let amount = 500 + Math.round(Math.random() * 100);
         for (let i = 0; i < amount; i++) {
             this.addEmber();
         }
