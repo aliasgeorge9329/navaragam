@@ -210,9 +210,9 @@ class Stage {
         this.stage = new PIXI.Container();
         this.flamesContainer = new PIXI.Container();
         if (background) {
-            var background0 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
-            var background1 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
-            var background2 = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/fire-background.png');
+            var background0 = new PIXI.Sprite.fromImage('Ellipse 1.png');
+            var background1 = new PIXI.Sprite.fromImage('Ellipse 2.png');
+            var background2 = new PIXI.Sprite.fromImage('Ellipse 3.png');
 
             var light = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/light.png');
 

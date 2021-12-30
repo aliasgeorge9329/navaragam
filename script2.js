@@ -73,6 +73,7 @@ $(window).on("click", () => {
 $(window).ready(() => {
       setInterval(() => {
             nextText()
+            // $('body').click()  
       }, 5000);
 })
 
