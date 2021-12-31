@@ -100,7 +100,7 @@ function getSentence() {
             })
       }
       catch(err){
-            
+
       }
 
 }
