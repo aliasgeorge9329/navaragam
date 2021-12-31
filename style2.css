@@ -61,10 +61,13 @@
   opacity: 0;
   transform: scale(0);
   z-index: 1;
+   pointer-events: none;
 }
 .four {
   z-index: 100;
   transform: scale(1);
+    pointer-events: all;
+
 }
 /* #modal-container.four
   .modal-background {
