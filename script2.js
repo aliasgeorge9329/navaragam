@@ -49,6 +49,10 @@ async function submitToServer() {
             $('#input-box').val("")
             // alert('Resolution saved succesfully')
             $('.bottom-right').addClass('do-show');
+            setInterval(() => {
+                  $('.bottom-right').removeClass('do-show')
+            }, 3000)
+            
             const response = await fetch(url, {
                   method: "POST",
                   mode: "cors",
@@ -60,9 +64,7 @@ async function submitToServer() {
                   body: JSON.stringify(data)
             })
            
-            setInterval(() => {
-                  $('.bottom-right').removeClass('do-show')
-            }, 3000)
+           
       }
 
 }
