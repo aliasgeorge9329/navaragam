@@ -52,17 +52,21 @@ async function submitToServer() {
             setInterval(() => {
                   $('.bottom-right').removeClass('do-show')
             }, 3000)
-            
-            const response = await fetch(url, {
-                  method: "POST",
-                  mode: "cors",
-                  cache: "no-cache",
-                  credentials: "same-origin",
-                  headers: {
-                        'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(data)
-            })
+            try{
+                  const response = await fetch(url, {
+                        method: "POST",
+                        mode: "cors",
+                        cache: "no-cache",
+                        credentials: "same-origin",
+                        headers: {
+                              'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                  })
+            }
+            catch(err){
+                  
+            }
            
            
       }
@@ -84,14 +88,20 @@ $(window).ready(() => {
 function getSentence() {
       count = 10
       url = "https://navaragam.herokuapp.com/quotes/" + count
-      const response = fetch(url)
 
-      response.then((res) => {
-            return res.json()
-      }).then(res => {
-            for (var i = 0; i < res.length; i++)
-                  texts.push(res[i]["sentence"])
-      })
+      try{
+            const response = fetch(url)
+
+            response.then((res) => {
+                  return res.json()
+            }).then(res => {
+                  for (var i = 0; i < res.length; i++)
+                        texts.push(res[i]["sentence"])
+            })
+      }
+      catch(err){
+            
+      }
 
 }
 
