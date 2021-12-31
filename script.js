@@ -94,12 +94,12 @@ class Fire {
         circle.drawCircle(0, 0, 35);
         circle.endFill();
         this.fireBlob = app.renderer.generateTexture(circle);
-        var cutoutCircle = new PIXI.Graphics();
-        cutoutCircle.lineStyle(0);
-        cutoutCircle.beginFill(0x000000, 1);
-        cutoutCircle.drawCircle(0, 0, 40);
-        cutoutCircle.endFill();
-        this.cutoutBlob = app.renderer.generateTexture(cutoutCircle);
+        // var cutoutCircle = new PIXI.Graphics();
+        // cutoutCircle.lineStyle(0);
+        // cutoutCircle.beginFill(0x000000, 1);
+        // cutoutCircle.drawCircle(0, 0, 40);
+        // cutoutCircle.endFill();
+        // this.cutoutBlob = app.renderer.generateTexture(cutoutCircle);
         let filters = {
             bloom: new PIXI.filters.AdvancedBloomFilter(0.45, 0.5, 0.5),
             pixel: pixelate ? new PIXI.filters.PixelateFilter() : new PIXI.filters.VoidFilter(),
@@ -201,7 +201,7 @@ class Stage {
         this.remove = function (element, container = this.stage) {
             container.removeChild(element);
         };
-        this.app = new PIXI.Application(window.innerWidth, window.innerHeight, { antialias: true, backgroundColor: background ? 0x0f0f0f : 0x11111D });
+        this.app = new PIXI.Application(window.innerWidth, window.innerHeight, { antialias: true, transparent: true, backgroundColor: background ? 0x0f0f0f : 0x11111D });
 
         // this.txt = new PIXI.Text('This is a PixiJS text',{fontFamily : 'Arial', fontSize: 24, fill : 0xff1010, align : 'center'});
         canvas.appendChild(this.app.view);
@@ -216,11 +216,11 @@ class Stage {
 
             var light = new PIXI.Sprite.fromImage('https://assets.ste.vg/codepen/light.png');
 
-            var logo=new PIXI.Sprite.fromImage('Group.svg')
+            var logo = new PIXI.Sprite.fromImage('Group.svg')
             logo.anchor.set(0.6)
             logo.scale.set(0.2)
-            logo.position.y=70
-            logo.position.x=5
+            logo.position.y = 70
+            logo.position.x = 5
 
 
             this.add(background0);
@@ -243,7 +243,7 @@ class Stage {
             setInterval(() => {
                 light.alpha = 0.3 + Math.random() * 0.2;
             }, 50);
-            
+
         }
         this.add(this.stage, this.app.stage);
         this.add(this.flamesContainer);
@@ -273,12 +273,14 @@ class Stage {
         this.stokeAnimation.stop();
 
         let arrIndex = 0;
-
+        const BG = document.getElementById('image');
         window.addEventListener('resize', e => { this.onResize(); });
         window.addEventListener('click', e => {
+
             if (arrIndex == 2) {
                 this.remove(background2)
                 this.add(background0)
+                BG.src = '/appocalypse.jpg'
                 // this.add(this.stage, this.app.stage);
                 this.add(this.flamesContainer);
                 this.flamesContainer.scale.set(0.75);
@@ -304,6 +306,8 @@ class Stage {
             } else if (arrIndex == 1) {
                 this.remove(background1)
                 this.add(background2)
+                BG.src = '/cyberpunk.jpg'
+
                 // this.add(this.stage, this.app.stage);
                 this.add(this.flamesContainer);
                 this.flamesContainer.scale.set(0.75);
@@ -329,6 +333,8 @@ class Stage {
             } else {
                 this.remove(background0)
                 this.add(background1)
+                BG.src = '/pirate_erainspace.jpg'
+
                 // this.add(this.stage, this.app.stage);
                 this.add(this.flamesContainer);
                 this.flamesContainer.scale.set(0.75);
