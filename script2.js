@@ -1,6 +1,6 @@
 
 texts = [
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "You only live once, but if you do it right, once is enough",
 
 ]
 var i = 0;
