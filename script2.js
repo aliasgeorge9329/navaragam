@@ -55,7 +55,7 @@ async function submitToServer() {
             try{
                   const response = await fetch(url, {
                         method: "POST",
-                        mode: "cors",
+                        mode: "no-cors",
                         cache: "no-cache",
                         credentials: "same-origin",
                         headers: {
