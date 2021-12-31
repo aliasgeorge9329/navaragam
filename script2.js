@@ -59,7 +59,8 @@ async function submitToServer() {
                         cache: "no-cache",
                         credentials: "same-origin",
                         headers: {
-                              'Content-Type': 'application/json'
+                              'Content-Type': 'application/json',
+                              'Access-Control-Allow-Origin':'*',
                         },
                         body: JSON.stringify(data)
                   })
@@ -80,8 +81,8 @@ $(window).on("click", () => {
 
 $(window).ready(() => {
       setInterval(() => {
-            nextText()
-            // $('body').click()  
+            // nextText()
+            $('body').click()  
       }, 5000);
 })
 
