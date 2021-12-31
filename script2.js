@@ -40,13 +40,13 @@ async function submitToServer() {
       if (!$('#input-box').val())
             return
       else {
-            $('#input-box').val("")
 
             url = "https://navaragam.herokuapp.com/compose"
             data = {
                   "sentence": $("#input-box").val()
             }
-            console.log(data);
+            // console.log(data);
+            $('#input-box').val("")
 
             const response = await fetch(url, {
                   method: "POST",
