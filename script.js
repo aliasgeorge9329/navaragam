@@ -280,7 +280,7 @@ class Stage {
             if (arrIndex == 2) {
                 this.remove(background2)
                 this.add(background0)
-                BG.src = 'appocalypse.jpg'
+                BG.src = './appocalypse.jpg'
                 // this.add(this.stage, this.app.stage);
                 this.add(this.flamesContainer);
                 this.flamesContainer.scale.set(0.75);
@@ -306,7 +306,7 @@ class Stage {
             } else if (arrIndex == 1) {
                 this.remove(background1)
                 this.add(background2)
-                BG.src = 'cyberpunk.jpg'
+                BG.src = './cyberpunk.jpg'
 
                 // this.add(this.stage, this.app.stage);
                 this.add(this.flamesContainer);
@@ -333,7 +333,7 @@ class Stage {
             } else {
                 this.remove(background0)
                 this.add(background1)
-                BG.src = 'pirate_erainspace.jpg'
+                BG.src = './pirate_erainspace.jpg'
 
                 // this.add(this.stage, this.app.stage);
                 this.add(this.flamesContainer);
