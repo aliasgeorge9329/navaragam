@@ -47,6 +47,7 @@ async function submitToServer() {
             }
             // console.log(data);
             $('#input-box').val("")
+            alert('Resolution saved succesfully')
 
             const response = await fetch(url, {
                   method: "POST",
