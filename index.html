@@ -12,9 +12,10 @@
   <link rel="stylesheet" href="style2.css">
 </head>
 <script>
-  window.onerror=()=>{
-    return true;
-  }
+ window.onerror = function(message, url, lineNumber) {  
+        // code to execute on an error  
+        return true; // prevents browser error messages  
+    };
   </script>
 <body>
   <!-- partial:index.partial.html -->
