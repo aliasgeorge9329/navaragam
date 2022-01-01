@@ -23,21 +23,9 @@
   width: 60px;
   height: 60px;
   text-align: center;
-  background: -webkit-linear-gradient(
-    45deg,
-    #dbdbdb,
-    #ececec
-  );
-  background: -o-linear-gradient(
-    45deg,
-    #dbdbdb,
-    #ececec
-  );
-  background: linear-gradient(
-    45deg,
-    #dbdbdb,
-    #ececec
-  );
+  background: -webkit-linear-gradient(45deg, #dbdbdb, #ececec);
+  background: -o-linear-gradient(45deg, #dbdbdb, #ececec);
+  background: linear-gradient(45deg, #dbdbdb, #ececec);
   color: rgb(0, 0, 0);
   line-height: 50px;
   border-radius: 50% 50%;
@@ -46,7 +34,7 @@
   opacity: 1;
   transition: all 0.4s;
 }
-#icon{
+#icon {
   transform: scale(1.5);
 }
 
@@ -56,11 +44,11 @@
   width: 100vw;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
 }
-.scale{
+.scale {
   opacity: 0;
   transform: scale(0);
   z-index: 1;
@@ -76,39 +64,25 @@
   background: rgba(0, 0, 0, 0.7);
 } 
 */
-#modal-container.four
-  .modal-background
-  .modal {
-  animation: blowUpModal 0.5s
-    cubic-bezier(0.165, 0.84, 0.44, 1)
-    forwards;
+#modal-container.four .modal-background .modal {
+  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 #modal-container.four + .content {
   z-index: 1;
-  animation: blowUpContent 0.5s
-    cubic-bezier(0.165, 0.84, 0.44, 1)
-    forwards;
+  animation: blowUpContent 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.four.out
-  .modal-background
-  .modal {
-  animation: blowUpModalTwo 0.5s
-    cubic-bezier(0.165, 0.84, 0.44, 1)
-    forwards;
+#modal-container.four.out .modal-background .modal {
+  animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 #modal-container.four.out + .content {
-  animation: blowUpContentTwo 0.5s
-    cubic-bezier(0.165, 0.84, 0.44, 1)
-    forwards;
+  animation: blowUpContentTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 #modal-container .modal-background {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#modal-container
-  .modal-background
-  .modal {
+#modal-container .modal-background .modal {
   max-width: 600px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -122,7 +96,7 @@
   min-height: 180px;
 }
 #closeBtn {
- position: absolute;
+  position: absolute;
   top: 50px;
   right: 80px;
   padding: 0;
@@ -147,24 +121,15 @@
   justify-content: space-between;
   align-items: center;
 }
-#modal-container
-  .modal-background
-  .modal
-  h2 {
+#modal-container .modal-background .modal h2 {
   font-size: 25px;
   line-height: 25px;
 }
-#modal-container
-  .modal-background
-  .modal
-  p {
+#modal-container .modal-background .modal p {
   font-size: 18px;
   line-height: 22px;
 }
-#modal-container
-  .modal-background
-  .modal
-  .modal-svg {
+#modal-container .modal-background .modal .modal-svg {
   position: absolute;
   top: 0;
   left: 0;
@@ -172,42 +137,45 @@
   width: 100%;
   border-radius: 3px;
 }
-#modal-container
-  .modal-background
-  .modal
-  .modal-svg
-  rect {
+#modal-container .modal-background .modal .modal-svg rect {
   stroke: #fff;
   stroke-width: 2px;
   stroke-dasharray: 778;
   stroke-dashoffset: 778;
 }
+.sponser {
+  position: fixed;
+  z-index: 2000;
+  width: 9%;
+  top: 10px;
+  right: 10px;
+}
 
 @media (max-width: 500px) {
-  #modal-container
-  .modal-background
-  .modal {
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  padding: 20px;
-  display: inline-block;
-  border-radius: 3px;
-  font-weight: 300;
-  position: relative;
-  min-height: 180px;
-}
-#closeBtn
-{
-  transform: scale(0.8);
-  top: 30px;
-  right: 30px;
-}
+  #modal-container .modal-background .modal {
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    display: inline-block;
+    border-radius: 3px;
+    font-weight: 300;
+    position: relative;
+    min-height: 180px;
+  }
+  #closeBtn {
+    transform: scale(0.8);
+    top: 30px;
+    right: 30px;
+  }
   /* #modal-container.four {
     z-index: 100;
     transform: scale(0.6);
     left: -3%;
   } */
+  .sponser {
+    width: 15%;
+  }
 }
 
 @keyframes blowUpContent {
@@ -309,14 +277,8 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: all 0.3s ease;
   color: rgb(238, 235, 235);
 }
-.Name
-  input:focus
-  + .labelName
-  .contentName,
-.Name
-  input:valid
-  + .labelName
-  .contentName {
+.Name input:focus + .labelName .contentName,
+.Name input:valid + .labelName .contentName {
   transform: translateY(-100%);
   font-size: 14px;
   color: var(--activeTitleColor);
@@ -339,8 +301,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 20px;
   color: #fff;
   line-height: 1.3;
-  box-shadow: 0 0 15px 0
-    rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
   max-width: 350px;
   margin: 20px;
   top: 0;
@@ -358,10 +319,8 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 .bottom-right.do-show {
-  animation: slide-in-right 1s
-      ease-in-out forwards,
-    slide-in-right 1s ease-in-out
-      reverse forwards 3s;
+  animation: slide-in-right 1s ease-in-out forwards,
+    slide-in-right 1s ease-in-out reverse forwards 3s;
 }
 
 .bottom-right[data-notification-status="warning"]:before {
@@ -389,8 +348,6 @@ input[type="number"]::-webkit-outer-spin-button {
     center/cover no-repeat;
 }
 
-
-
 .btn {
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -417,15 +374,10 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .fourth {
   border-color: #dbdbdb;
-  background-image: linear-gradient(
-    45deg,
-    #dbdbdb 50%,
-    transparent 50%
-  );
+  background-image: linear-gradient(45deg, #dbdbdb 50%, transparent 50%);
   background-position: 100%;
   background-size: 400%;
-  transition: background 300ms
-    ease-in-out;
+  transition: background 300ms ease-in-out;
 }
 .fourth:hover {
   background-position: 0;
@@ -435,14 +387,10 @@ input[type="number"]::-webkit-outer-spin-button {
 .third {
   border-color: black;
   color: #fff;
-  box-shadow: 0 0 40px 40px black inset,
-    0 0 0 0 black;
+  box-shadow: 0 0 40px 40px black inset, 0 0 0 0 black;
   transition: all 150ms ease-in-out;
 }
 /* .third:hover {
   color: black;
   box-shadow: 0 0 10px 0 black inset, 0 0 10px 4px black;
 } */
-
-
-
